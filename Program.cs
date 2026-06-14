@@ -22,7 +22,7 @@ namespace ConsoleApp7
 
             if (string.IsNullOrWhiteSpace(connectionString))
             {
-                Console.WriteLine("❌ Connection string not found!");
+                Console.WriteLine(" Connection string not found!");
                 Console.ReadLine();
                 return;
             }
@@ -73,12 +73,11 @@ namespace ConsoleApp7
             }
         }
 
-        // ================= CONNECT =================
         static void Connect()
         {
             if (isConnected)
             {
-                Console.WriteLine("\n⚠ Already connected!");
+                Console.WriteLine("\n Already connected!");
                 Pause();
                 return;
             }
@@ -97,19 +96,18 @@ namespace ConsoleApp7
                 isConnected = false;
                 connection = null;
 
-                Console.WriteLine("\n❌ Connection failed!");
+                Console.WriteLine("\n Connection failed!");
                 Console.WriteLine(ex.Message);
             }
 
             Pause();
         }
 
-        // ================= DISCONNECT =================
         static void Disconnect()
         {
             if (!isConnected || connection == null)
             {
-                Console.WriteLine("\n⚠ Not connected!");
+                Console.WriteLine("\n Not connected!");
                 Pause();
                 return;
             }
@@ -124,19 +122,17 @@ namespace ConsoleApp7
             Pause();
         }
 
-        // ================= VALIDATION =================
         static bool EnsureConnected()
         {
             if (!isConnected || connection == null)
             {
-                Console.WriteLine("\n❌ Please connect to database first!");
+                Console.WriteLine("\n Please connect to database first!");
                 Pause();
                 return false;
             }
             return true;
         }
 
-        // ================= QUERIES =================
         static void ShowAllItems()
         {
             if (!EnsureConnected()) return;
@@ -266,7 +262,6 @@ namespace ConsoleApp7
             Pause();
         }
 
-        // ================= PAUSE =================
         static void Pause()
         {
             Console.WriteLine("\nPress Enter...");
